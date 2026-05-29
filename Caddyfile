@@ -1,0 +1,9 @@
+# Configuración de Caddy: HTTPS automático (Let's Encrypt) + proxy a la app.
+{
+	email julio.sarmiento@americanad.com.ar
+}
+
+lusanautoservicio.com.ar, www.lusanautoservicio.com.ar {
+	encode gzip zstd
+	reverse_proxy app:8000
+}
