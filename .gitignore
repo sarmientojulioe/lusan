@@ -1,0 +1,16 @@
+node_modules/
+dist/
+.angular/
+coverage/
+__pycache__/
+*.pyc
+.venv/
+.env
+
+# Entorno virtual de Python local (no se despliega)
+lusan/
+# Artefactos antiguos
+*.zip
+
+# Configuración local de herramientas
+.claude/

@@ -1,0 +1,146 @@
+<div class="page-shell">
+  <header class="topbar">
+    <a class="brand-mark" href="#inicio" aria-label="Ir al inicio de LUSAN">
+      <img [src]="brand().logo" [alt]="'Logo de ' + brand().name" />
+    </a>
+
+    <nav class="menu" aria-label="Navegación principal">
+      <a href="#inicio">Inicio</a>
+      <a href="#propuesta">Valores</a>
+      <a href="#produccion">Cocina</a>
+    </nav>
+
+    <a class="button button-outline" href="#produccion">Staff</a>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="hero-copy">
+        <span class="eyebrow">Comida tradiciónal</span>
+        <h1 class="headline">{{ brand().heroTitle }}</h1>
+
+        <div class="brand-lockup" aria-label="LUSAN Tradicionalmente rico">
+          <span class="wordmark wordmark-back">{{ brand().name }}</span>
+          <span class="wordmark wordmark-front">{{ brand().name }}</span>
+          <span class="tagline">{{ brand().tagline }}</span>
+        </div>
+
+        <p class="lead">
+          {{ brand().heroDescription }}
+        </p>
+
+        <div class="actions">
+          <a class="button button-primary" href="#coleccion">Ver valores</a>
+          <a class="button button-outline" href="#stack">Ver stack técnico</a>
+        </div>
+
+        <ul class="stat-strip" aria-label="Resumen de la identidad">
+          <li *ngFor="let stat of brand().stats; trackBy: trackByTitle">
+            <strong>{{ stat.value }}</strong>
+            <span>{{ stat.label }}</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="hero-stage">
+        <div
+          class="showcase-3d"
+          [style.transform]="heroTransform()"
+          [style.--glow-position]="glowStyle()"
+          (mousemove)="onHeroMove($event)"
+          (mouseleave)="resetHero()"
+        >
+          <div class="ambient-light"></div>
+          <div class="stage-panel logo-panel">
+            <img [src]="brand().logo" [alt]="'Logo destacado de ' + brand().name" />
+          </div>
+          <div class="stage-chip chip-gold">Experiencia</div>
+          <div class="stage-chip chip-wine">San Juan</div>
+          <div class="stage-card stage-card-main">
+            <span class="card-kicker">Misión</span>
+            <h2>Cocina tradicional al alcance de todos</h2>
+            <p>
+              los mejores platos tradicinales, con un toque de actualidad
+            </p>
+          </div>
+          <div class="stage-card stage-card-side">
+            <span class="mini-title">Valores</span>
+            <div class="swatches">
+              <span class="swatch wine"></span>
+              <span class="swatch gold"></span>
+              <span class="swatch cream"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-grid" id="propuesta">
+      <article class="content-card intro-card">
+        <span class="section-label">Concepto visual</span>
+        <h2>Una landing elegante, cálida y comercial</h2>
+        <p>
+          La interfaz mezcla una base oscura con reflejos dorados y superficies flotantes para proyectar calidad artesanal. El resultado se siente premium, limpio y adaptable a campañas, catálogo o franquicias.
+        </p>
+      </article>
+
+      <article class="content-card feature-card" *ngFor="let item of brand().highlights; trackBy: trackByTitle">
+        <span class="section-label">Clave</span>
+        <h3>{{ item.title }}</h3>
+        <p>{{ item.text }}</p>
+      </article>
+    </section>
+
+    <section class="section showcase-section" id="coleccion">
+      <div class="showcase-heading">
+        <span class="section-label">Nuestros valores</span>
+        <h2>Dedicación, cuidado y atención</h2>
+      </div>
+
+      <div class="showcase-grid">
+        <article class="product-panel wine-panel">
+          <span class="floating-number">01</span>
+          <h3>Dedicación</h3>
+          <p>extremos cuidados de elaboracion, dando un toque tradicional para que sienta como echo en casa por nuestras madres o abuelas</p>
+        </article>
+
+        <article class="product-panel gold-panel">
+          <span class="floating-number">02</span>
+          <h3>Cuidado</h3>
+          <p>Nuestro equipo de cocina con el mas elevado standar de higiene y seguridad, para su tranquilidad al disfrutar de la comida</p>
+        </article>
+
+        <article class="product-panel cream-panel">
+          <span class="floating-number">03</span>
+          <h3>Atención</h3>
+          <p>Todo nuestro personal dispuesto a asesorarlo en su compra</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section tech-section" id="stack">
+      <div class="tech-copy">
+        <span class="section-label">Nuestro Personal</span>
+        <h2>Cocineros ayudantes y colaboradores nuestros</h2>
+        <p>
+          Capacitamos a nuestro prsonal para la mejor elaboracion de nuestras recetas dentro del ambiente mas higienico, con las medidas maximas de seguridad, sino olvidar de la seleccion de la mejor materia prima.
+        </p>
+      </div>
+
+      <div class="stack-cards" id="produccion">
+        <article class="stack-card">
+          <strong>Cocina</strong>
+          <span>Cocineros y ayudantes cuidando cada detalle de nuestras recetas</span>
+        </article>
+        <article class="stack-card">
+          <strong>Salon</strong>
+          <span>Mantenemos la limpieza y el orden de cada ricon, coma asi tambien el stock de los productos, para que tengas todo en un solo lugar.</span>
+        </article>
+        <article class="stack-card">
+          <strong>Veduras y Frutas</strong>
+          <span>La mejor verdura y fruta de la provincia, seleccionada para que la tengas a tu alcance.</span>
+        </article>
+      </div>
+    </section>
+  </main>
+</div>

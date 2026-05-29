@@ -1,0 +1,11 @@
+# No copiar al contexto de build (acelera y reduce tamaño)
+**/node_modules
+**/dist
+**/.angular
+**/__pycache__
+**/*.pyc
+**/.venv
+lusan/
+*.zip
+.git
+.env

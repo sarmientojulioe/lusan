@@ -1,0 +1,14 @@
+# Blueprint de despliegue para Render.com (https://render.com)
+# Despliega LUSAN (frontend + backend) como un único servicio web con Docker.
+# Render detecta este archivo automáticamente al conectar el repositorio.
+services:
+  - type: web
+    name: lusan-web
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    plan: free
+    region: oregon
+    healthCheckPath: /api/health
+    envVars:
+      - key: CORS_ORIGINS
+        value: "*"
