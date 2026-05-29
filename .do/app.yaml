@@ -1,0 +1,28 @@
+# Especificación de DigitalOcean App Platform para LUSAN
+# Despliega frontend (Angular) + backend (FastAPI) como un único
+# servicio web a partir del Dockerfile de la raíz del repositorio.
+name: lusan-web
+region: nyc
+services:
+  - name: web
+    dockerfile_path: Dockerfile
+    source_dir: /
+    github:
+      repo: sarmientojulioe/lusan
+      branch: main
+      deploy_on_push: true
+    http_port: 8080
+    instance_count: 1
+    instance_size_slug: apps-s-1vcpu-0.5gb
+    health_check:
+      http_path: /api/health
+    envs:
+      - key: PORT
+        value: "8080"
+      - key: CORS_ORIGINS
+        value: "*"
+domains:
+  - domain: lusanautoservicio.com.ar
+    type: PRIMARY
+  - domain: www.lusanautoservicio.com.ar
+    type: ALIAS
